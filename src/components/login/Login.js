@@ -12,6 +12,7 @@ import { GetApi, PostApi } from "../../services/api.service";
 import { baseUrl } from "../../services/apiUrl";
 import { useDispatch } from "react-redux";
 import { setUsers } from "../../redux/slice/users";
+import { Toast, ToastContainer } from "react-bootstrap";
 
 
 const Login = (props) => {
@@ -22,6 +23,7 @@ const Login = (props) => {
     })
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [errorMessage, setErrorMessage] = useState("")
 
     const handleButtonClick = () => {
         if (!isNextClicked) {
@@ -43,7 +45,13 @@ const Login = (props) => {
                         navigate("/home");
                     }
                 })
-                .catch(error => console.log(error))
+                .catch(error => {
+                    console.log(error)
+                    setErrorMessage(error?.data?.emailnotfound || error?.data?.passwordincorrect )
+                    setTimeout(() => {
+                        setErrorMessage("");
+                    }, [2000])
+                })
         }
 
     }
@@ -70,6 +78,14 @@ const Login = (props) => {
                 <div className="body">
                     <h3 className="body-title">Sign in to Twitter</h3>
                     <br />
+                    {
+                        errorMessage &&
+                        <ToastContainer position="top-end" className="p-1">
+                            <Toast bg="danger">
+                                <Toast.Body style={{color:"white"}}>{errorMessage}</Toast.Body>
+                            </Toast>
+                        </ToastContainer>
+                    }
                     <Form.Control
                         required
                         style={{ width: "300px" }}

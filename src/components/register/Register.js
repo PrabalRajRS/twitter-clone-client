@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CloseButton from "react-bootstrap/CloseButton";
 import Form from 'react-bootstrap/Form';
 import Image from 'react-bootstrap/Image';
@@ -9,10 +9,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import './Register.scss';
 import { PostApi } from "../../services/api.service";
 import { baseUrl } from "../../services/apiUrl";
+import { Toast, ToastContainer } from "react-bootstrap";
 
 const Register = (props) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [errorMessage, setErrorMessage] = useState("")
     const [isNextClicked, setIsNextClicked] = useState(false);
     const [user, setUser] = useState({
         name: "",
@@ -34,7 +36,12 @@ const Register = (props) => {
                 console.log(response);
                 navigate("/home");
             })
-            .catch(error => console.log(error))
+            .catch(error => {
+                setErrorMessage(error?.data?.name || error?.data?.email || error?.data?.password)
+                setTimeout(() => {
+                    setErrorMessage("");
+                }, [2000])
+            })
     }
 
     const handleChange = (e) => {
@@ -56,6 +63,15 @@ const Register = (props) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
+                {
+                    errorMessage &&
+                    <ToastContainer position="top-end" className="p-3">
+                        <Toast bg="danger">
+                            <Toast.Body style={{ color: "white" }}>{errorMessage}</Toast.Body>
+                        </Toast>
+                    </ToastContainer>
+                }
+
                 <div className="body">
                     <h3 className="body-title">Sign Up to Twitter</h3>
                     <br />
