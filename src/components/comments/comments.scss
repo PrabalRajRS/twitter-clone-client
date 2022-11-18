@@ -1,0 +1,113 @@
+@use "../../constants.scss" as color;
+
+.comments-container {
+    padding: 30px;
+    max-height: 500px;
+    overflow-y: auto;
+
+    .image-container {
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+        background-color: color.$borderGrey;
+        margin-left: 12px;
+
+        .image {
+            object-fit: fill;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+        }
+
+    }
+
+    .profileName {
+        font-size: 15px;
+        font-weight: 700;
+        cursor: pointer;
+        margin: 0;
+
+        i {
+            font-weight: 400;
+            color: grey;
+        }
+    }
+
+    .content {
+        font-weight: 500;
+    }
+
+    .replyTo {
+        font-size: 15px;
+        cursor: pointer;
+        margin: 0;
+
+        i {
+            font-weight: 400;
+            color: color.$primaryBlue;
+        }
+    }
+
+    .img-container {
+        display: flex;
+        flex-wrap: wrap;
+
+        .img {
+            width: 120px;
+            padding: 2px;
+        }
+    }
+
+    .post-area {
+        padding: 0;
+
+        .form-control.input {
+            border: none !important;
+            margin-left: 20px;
+        }
+
+        .form-control.input:focus {
+            box-shadow: none;
+        }
+
+        .post-area-footer {
+            .status-button {
+                background-color: white;
+                color: color.$primaryBlue;
+                border: none;
+            }
+
+            .icons {
+                display: flex;
+
+                .icon {
+                    margin: 10px;
+                    color: color.$primaryBlue;
+                }
+            }
+
+            .tweet-button {
+                background-color: color.$primaryBlue;
+                color: color.$white;
+                border-radius: 50px;
+                float: right;
+                margin-top: -40px;
+            }
+
+        }
+
+    }
+
+    .comment-section {
+        .comment {
+            border-bottom: 1px rgb(231, 231, 231) solid;
+            padding-top: 10px !important;
+            margin-top: 10px;
+        }
+
+        .comment:hover {
+            background-color: rgb(238, 238, 238);
+            transition: 0.5s;
+        }
+    }
+}

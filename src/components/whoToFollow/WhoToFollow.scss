@@ -1,0 +1,57 @@
+@use "../../constants.scss" as color;
+
+.follow-cards {
+    border: none !important;
+    background-color: rgb(238, 238, 238) !important;
+    border-radius: 20px !important;
+    width: 100%;
+    margin-top: 20px;
+
+    .title {
+        padding: 15px;
+        font-weight: 800;
+    }
+
+    .card {
+        border: none;
+        background-color: rgb(238, 238, 238);
+        padding: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .image-container {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background-color: color.$borderGrey;
+            margin-left: 12px;
+
+            .image {
+                object-fit: fill;
+                width: 50px;
+                height: 50px;
+                border-radius: 50px;
+            }
+
+        }
+
+        .name {
+            color: color.$black;
+            font-weight: 600;
+            margin: 5px 5px 0px 5px;
+        }
+
+        .username {
+            color: grey;
+            font-weight: 400;
+            margin: 0px 5px 0px 5px;
+        }
+
+    }
+
+    .card:hover {
+        background-color: rgb(218, 216, 216);
+        transition: 1s;
+    }
+}

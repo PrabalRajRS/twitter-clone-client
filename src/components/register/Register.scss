@@ -1,0 +1,50 @@
+@use "../../constants.scss" as color;
+
+.register {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    .header {
+        .twitter-logo {
+            width: 40px;
+            position: absolute;
+            left: 45%;
+            top: 8px;
+        }
+    }
+
+    .body {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        .body-title {
+            font-weight: 700;
+        }
+    }
+
+    .modal-header {
+        border-bottom: 0 none;
+    }
+
+    .modal-footer {
+        border-top: 0 none;
+    }
+
+    .dont-have-account {
+        margin-top: 40px;
+
+        b {
+            color: color.$primaryBlue
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+}

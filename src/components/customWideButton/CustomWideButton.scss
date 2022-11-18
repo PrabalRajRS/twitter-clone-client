@@ -1,0 +1,56 @@
+@use "../../constants.scss" as color;
+
+.signUp-button {
+    background-color: color.$primaryBlue !important;
+    border-radius: 50px !important;
+    font-size: 17px;
+    padding: 3px 22px;
+    font-weight: 600;
+    width: 300px
+}
+
+.signIn-button {
+    background-color: white !important;
+    border-radius: 50px !important;
+    font-size: 17px;
+    padding: 3px 22px;
+    font-weight: 600;
+    width: 300px;
+    border-color: color.$borderGrey;
+    color: color.$primaryBlue !important
+}
+
+.next-button {
+    background-color: color.$black !important;
+    color: white !important;
+    border-radius: 50px !important;
+    font-size: 17px;
+    padding: 3px 22px;
+    font-weight: 600;
+    width: 300px;
+}
+
+.forgot-password-button {
+    margin-top: 20px;
+    background-color: white !important;
+    border-radius: 50px !important;
+    font-size: 17px;
+    padding: 3px 22px;
+    font-weight: 600;
+    width: 300px;
+    border-color: color.$borderGrey;
+    color: color.$black !important
+}
+
+.small-white {
+    background-color: white !important;
+    color: color.$black !important;
+    font-weight: 600 !important;
+    border-radius: 50px !important;
+    border: 2px solid color.$borderGrey !important;
+}
+
+.small-width{
+    width: 100px;
+    height: 40px;
+}

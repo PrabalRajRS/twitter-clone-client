@@ -1,0 +1,39 @@
+.cards {
+    border: none !important;
+    background-color: rgb(238, 238, 238) !important;
+    border-radius: 20px !important;
+    width: 100%;
+
+    .title {
+        padding: 15px;
+        font-weight: 800;
+    }
+
+    .card {
+        border: none;
+        background-color: rgb(238, 238, 238);
+        padding: 15px;
+
+        .topic {
+            color: grey;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .description {
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .tweets {
+            color: grey;
+            font-weight: 700;
+            margin: 0;
+        }
+    }
+
+    .card:hover {
+        background-color: rgb(218, 216, 216);
+    }
+}

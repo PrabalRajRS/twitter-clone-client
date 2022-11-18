@@ -1,0 +1,51 @@
+.container.landing {
+    max-width: 100%;
+
+    a {
+        text-decoration: none;
+    }
+
+    .row>* {
+        padding: 0
+    }
+
+    .left-side {
+        .landing-image {
+            width: 100%
+        }
+    }
+
+    .right-side {
+        padding: 20px;
+
+        .twitter-logo {
+            width: 50px;
+            margin: 25px 0px;
+        }
+
+        .titleOne {
+            font-size: 70px;
+            font-weight: 900;
+        }
+
+        .titleTwo {
+            margin: 30px 0px;
+            font-size: 35px;
+            font-weight: 700;
+        }
+
+        .termConditions {
+            font-size: 11px;
+            margin-top: 5px;
+            width: 300px;
+        }
+
+        .already-have-account {
+            margin-top: 40px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+    }
+
+}
