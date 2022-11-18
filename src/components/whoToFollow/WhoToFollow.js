@@ -49,7 +49,7 @@ const WhoToFollow = () => {
     return (
         <div>
             {
-                filteredUsers.length > 0 &&
+                filteredUsers && filteredUsers.length > 0 &&
                 <Card className="follow-cards">
                     <h4 className="title">Who to follow</h4>
                     {
