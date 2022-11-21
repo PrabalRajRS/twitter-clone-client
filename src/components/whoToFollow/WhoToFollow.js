@@ -17,13 +17,13 @@ const WhoToFollow = () => {
     const getUsersData = async () => {
         await GetApi(`${baseUrl}/users`)
             .then(response => {
-                console.log(loggedUserId)
+                // console.log(loggedUserId)
                 dispatch(setUsers(response?.data));
                 const filterUser = response?.data?.users?.filter((item) => {
                     return !item?.followers.includes(loggedUserId) && item?._id != loggedUserId
                 });
                 setFilteredUsers(filterUser);
-                console.log("filterUser", filterUser)
+                // console.log("filterUser", filterUser)
             })
             .catch(error => console.log(error))
     }

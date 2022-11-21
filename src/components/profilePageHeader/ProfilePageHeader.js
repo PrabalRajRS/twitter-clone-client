@@ -103,7 +103,7 @@ const ProfilePageHeader = ({ userId }) => {
                     <input ref={profilePicRef}
                         onChange={e => setPictures({ profile: e.target.files[0] })}
                         name="profilePicture"
-                        className="d-none"
+                        className={`d-none`}
                         type="file" />
                     {
                         userData?.profilePicture

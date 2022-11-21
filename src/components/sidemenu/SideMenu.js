@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
+import { Form, Nav } from 'react-bootstrap';
 import { AiTwotoneHome, AiOutlineLogout } from 'react-icons/ai';
 import { CgMoreO } from 'react-icons/cg';
 import { FaHashtag, FaRegBookmark, FaRegEnvelope } from 'react-icons/fa';
@@ -7,10 +7,13 @@ import { RiFileList2Line, RiNotification2Line } from 'react-icons/ri';
 import { HiOutlineUser } from 'react-icons/hi';
 import './SideMenu.scss';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setTheme } from '../../redux/slice/theme';
 
 const SideMenu = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch()
+    const currentThemeMode = useSelector(state => state.themeReducer);
     const userId = localStorage.getItem("userId");
 
     const handleClick = (route, item) => {
@@ -20,7 +23,11 @@ const SideMenu = () => {
             }
         });
     }
-    
+    const handleTheme = (val) => {
+        console.log(val)
+        dispatch(setTheme(val));
+    }
+
     const handleChange = (key) => {
         switch (key) {
             case "6":
@@ -46,6 +53,13 @@ const SideMenu = () => {
             <Nav.Link eventKey="6"><HiOutlineUser /> &nbsp; Profile</Nav.Link>
             <Nav.Link eventKey="7"><AiOutlineLogout /> &nbsp; Logout</Nav.Link>
             <Nav.Link eventKey="8"><CgMoreO /> &nbsp; More</Nav.Link>
+            <div className='theme-switch'>
+                <Form.Check
+                    checked={currentThemeMode?.isNightMode}
+                    type="switch"
+                    onChange={(e) => handleTheme(e.target.checked)}
+                    label="Day / Night" />
+            </div>
         </Nav>
     )
 }

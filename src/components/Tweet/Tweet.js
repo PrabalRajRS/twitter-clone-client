@@ -12,6 +12,7 @@ import './Tweet.scss';
 const Tweet = () => {
     const userId = localStorage.getItem("userId");
     const currentUser = useSelector(state => state.authReducer?.user);
+    const currentThemeMode = useSelector(state => state.themeReducer);
     const items = [
         {
             id: 0,
@@ -108,9 +109,17 @@ const Tweet = () => {
             </Col>
             <Col sm={10} className="post-area">
                 <form onSubmit={handlePost} encType="multipart/form-data">
-                    <FormControl onChange={handleChange} name="content" className='input' placeholder="What's Happening?" />
+                    <FormControl
+                        as="textarea"
+                        rows={2}
+                        onChange={handleChange}
+                        name="content"
+                        className={`input`}
+                        placeholder="What's Happening?" />
                     <div className="post-area-footer">
-                        <Button className="status-button"><FaGlobeAsia /> Everyone can Reply</Button>
+                        <Button className={`status-button  ${currentThemeMode?.isNightMode && "dark-background white-font"}`}>
+                            <FaGlobeAsia /> Everyone can Reply
+                        </Button>
                         <div className="icons">
                             {
                                 items.map((item) => (

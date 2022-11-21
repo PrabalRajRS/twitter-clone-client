@@ -22,6 +22,7 @@ const Home = () => {
     const loggedUserId = localStorage.getItem("userId");
     const currentUser = useSelector(state => state.authReducer?.user);
     const usersList = useSelector(state => state.usersReducer?.users);
+    const currentThemeMode = useSelector(state => state.themeReducer);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchValue, setSearchValue] = useState("")
     const [userss, setUserss] = useState([]);
@@ -70,7 +71,7 @@ const Home = () => {
         <Container className="home-container">
             <Row >
                 <Col sm={3} xs={12} className="col-1">
-                    <Row className="col-header">
+                    <Row className={`col-header ${currentThemeMode?.isNightMode && "dark-header-background"}`}>
                         <div>
                             <Image src="/twitter-logo.png" className="logo" />
                         </div>
@@ -82,7 +83,7 @@ const Home = () => {
 
                 </Col>
                 <Col sm={5} xs={12} className="col-2">
-                    <Row className="col-header">
+                    <Row className={`col-header ${currentThemeMode?.isNightMode && "dark-header-background"}`}>
                         <h5 className="page-title">Home</h5>
                     </Row>
                     <div className="col-body">
@@ -91,7 +92,7 @@ const Home = () => {
                     </div>
                 </Col>
                 <Col sm={4} xs={12} className="col-3">
-                    <Row className="col-header">
+                    <Row className={`col-header ${currentThemeMode?.isNightMode && "dark-header-background"}`}>
                         <div style={{ padding: "10px 50px 10px 30px" }}>
                             <div className="search-container">
                                 <FiSearch className="search-icon" />

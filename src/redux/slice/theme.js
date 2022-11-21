@@ -3,15 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 export const themeSlice = createSlice({
     name: 'theme',
     initialState: {
-        theme: {
-            primaryButton: "#1d9bf0"
-        },
+        isNightMode: false
     },
     reducers: {
         setTheme: (state, action) => {
             return {
                 ...state,
-                theme: action.payload
+                isNightMode: action.payload
             };
         }
     }

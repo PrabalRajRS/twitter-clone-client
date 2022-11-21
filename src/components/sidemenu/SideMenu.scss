@@ -15,4 +15,18 @@
         max-width: fit-content;
         color: #1a1919;
     }
+
+    .theme-switch {
+        margin-left: 45px;
+        margin-top: 5px;
+        .form-check-input {
+            cursor: pointer;
+            width: 3em !important;
+            height: 1.6em !important;
+        }
+        .form-check-label{
+            margin-left: 8px;
+            margin-top: 3px;
+        }
+    }
 }

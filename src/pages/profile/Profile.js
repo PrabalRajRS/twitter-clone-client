@@ -20,6 +20,7 @@ const Profile = () => {
     console.log(location, params)
     const [filteredUsers, setFilteredUsers] = useState([]);
     const usersList = useSelector(state => state.usersReducer?.users);
+    const currentThemeMode = useSelector(state => state.themeReducer);
     // const [users, setUsers] = useState([]);
     const [data, setData] = useState()
 
@@ -32,16 +33,6 @@ const Profile = () => {
         }
     }, [localStorage])
 
-
-    // const getUsersData = async () => {
-    //     await GetApi(`${baseUrl}/users`)
-    //         .then(response => {
-    //             console.log("users response ", response.data);
-    //             setUsers(response?.data);
-    //         })
-    //         .catch(error => console.log(error))
-    // }
-
     const getUserData = async () => {
         await GetApi(`${baseUrl}/users/${params?.id}`)
             .then(response => {
@@ -52,7 +43,6 @@ const Profile = () => {
     }
 
     useEffect(() => {
-        // getUsersData();
         getUserData();
     }, [navigate])
 
@@ -81,7 +71,7 @@ const Profile = () => {
         <Container className="profile-container">
             <Row >
                 <Col sm={3} xs={12} className="col-1">
-                    <Row className="col-header">
+                    <Row className={`col-header ${currentThemeMode?.isNightMode && "dark-header-background"}`}>
                         <div>
                             <Image src="/twitter-logo.png" className="logo" />
                         </div>
@@ -93,7 +83,7 @@ const Profile = () => {
 
                 </Col>
                 <Col sm={5} xs={12} className="col-2">
-                    <Row className="col-header">
+                    <Row className={`col-header ${currentThemeMode?.isNightMode && "dark-header-background"}`}>
                         <Col sm={1} xs={1} style={{ border: 'none', paddingTop: 10 }}>
                             <IoMdArrowRoundBack onClick={() => navigate(-1)} />
                         </Col>
@@ -107,7 +97,7 @@ const Profile = () => {
                     </div>
                 </Col>
                 <Col sm={4} xs={12} className="col-3">
-                    <Row className="col-header">
+                    <Row className={`col-header ${currentThemeMode?.isNightMode && "dark-header-background"}`}>
                         <div style={{ padding: "10px 50px 10px 30px" }}>
                             <div className="search-container">
                                 <FiSearch className="search-icon" />
